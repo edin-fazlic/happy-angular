@@ -9,7 +9,7 @@ import {PersonDto} from '../models/dto/person-dto.interface';
 })
 export class HappyPeopleService {
 
-  private readonly url = 'http://localhost:8080/happy-people';
+  private readonly url = 'https://happy1-152029235b44.herokuapp.com/happy-people';
 
   constructor(private httpClient: HttpClient) {
   }
