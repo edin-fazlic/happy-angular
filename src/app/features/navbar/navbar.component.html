@@ -1,0 +1,26 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/about"
+         routerLinkActive="active"
+         ariaCurrentWhenActive="page">About Us Page</a>
+    </li>
+    <li>
+      <a routerLink="/contact"
+         routerLinkActive="active"
+         ariaCurrentWhenActive="page">Contact Us Page</a>
+    </li>
+    <div *ngIf="!var1">
+      <li>
+        <a routerLink="/users/57"
+           routerLinkActive="active"
+           ariaCurrentWhenActive="page">Dino</a>
+      </li>
+      <li>
+        <a routerLink="/109"
+           routerLinkActive="active"
+           ariaCurrentWhenActive="page">Edin</a>
+      </li>
+    </div>
+  </ul>
+</nav>

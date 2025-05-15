@@ -1,0 +1,11 @@
+<form [formGroup]="form" (submit)="submitForm()"
+      style="display: flex; flex-direction: column; gap: 20px"
+>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Person name</mat-label>
+    <input matInput [formControlName]="'name'">
+  </mat-form-field>
+
+  <button type="submit" mat-stroked-button>Add create</button>
+</form>
