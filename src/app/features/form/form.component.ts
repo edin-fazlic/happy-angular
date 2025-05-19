@@ -6,6 +6,7 @@ import {MealService} from '../../services/meal.service';
 import {MealDto} from '../../models/meal-dto.interface';
 import {HappyPeopleService} from '../../services/happy-people.service';
 import {PersonDto} from '../../models/dto/person-dto.interface';
+import {Subject, takeUntil} from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -26,7 +27,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   counter = 15;
 
-  // unsubscribe: BehaviorSubject<any> = new BehaviorSubject<any>();
+  unsubscribe$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private formBuilder: FormBuilder,
               private mealService: MealService,
@@ -40,14 +41,13 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.unsubscribe.next(true);
+    this.unsubscribe$.next(true);
+    this.unsubscribe$.complete();
   }
 
   submitForm() {
     this.happyPeopleService.savePerson(this.form.value)
-      // .pipe(
-      //   takeUntil(this.unsubscribe)
-      // )
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe((person: PersonDto) => {
         console.log(person);
       });

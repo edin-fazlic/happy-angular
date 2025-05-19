@@ -3,13 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {delay, Observable, of} from 'rxjs';
 import {MealDto} from '../models/meal-dto.interface';
 import {PersonDto} from '../models/dto/person-dto.interface';
+import {environment} from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HappyPeopleService {
 
-  private readonly url = 'https://happy1-152029235b44.herokuapp.com/happy-people';
+  private readonly url = environment.backendUrl;
 
   constructor(private httpClient: HttpClient) {
   }
